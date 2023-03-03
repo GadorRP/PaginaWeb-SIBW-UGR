@@ -1,0 +1,31 @@
+/* selector {declaracion; atributovalor} */
+p{
+    color:orange;
+}
+
+#segundo {
+    color: #ff0000;
+}
+
+.clasico {
+    background-color:plum;
+    
+    font-size: 1.5rem ;
+}
+
+p.novedoso {
+    border-style: dotted;
+    border-color: blue;
+}
+p:hover {
+    background-color: grey ;
+}
+
+nav {
+    display: flex ;
+    flex-direction: column ;
+}
+
+footer {
+    text-align: center ;
+}

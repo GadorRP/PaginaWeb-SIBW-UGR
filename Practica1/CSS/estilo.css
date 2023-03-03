@@ -1,0 +1,90 @@
+/* selector {declaracion; atributovalor} */
+
+/*body {
+    background-color: rgb(29, 29, 29);
+}*/
+.cabecera {
+    background-color: aquamarine;
+    border-radius: 20px 20px 20px 20px ;
+
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+#titulo {
+    color: rebeccapurple;
+}
+
+ul {
+    list-style-type: none; /* quitar puntos y margenes de los enlaces */
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+  
+li a {
+    display: block;     /*cada uno de los enlaces se comportan como un bloque*/
+    color: rebeccapurple;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    color: white;
+}
+
+.contenido {
+    margin-top: 10px;
+    
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+    column-gap: 20px;
+
+    color: black;
+    border-radius: 20px 20px 20px 20px ;
+}
+
+.cientificas {
+    border-radius: 20px 20px 20px 20px ;
+    background-color: aquamarine;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px;
+    
+}
+
+.ficha {
+    display: flex;
+    justify-content: center;
+    border-radius: 20px 20px 20px 20px ;
+    background-color: rgb(186, 60, 224);
+}
+
+.ficha img{
+    width:  150px;
+    height: 150px;
+    object-fit: contain;
+}
+
+.ficha a {
+    color: black;
+    text-align: center;
+}
+
+.auxiliar {
+    background-color: rgb(78, 167, 137);
+    border-radius: 20px 20px 20px 20px ;
+}
+
+footer {
+    text-align: center;
+}
+
+
+
+
