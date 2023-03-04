@@ -1,0 +1,123 @@
+/* selector {declaracion; atributovalor} */
+
+html {
+    background-color: black
+}
+
+.cabecera {
+    background-color: aquamarine;
+    border-radius: 20px 20px 20px 20px ;
+
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+#titulo {
+    color: rebeccapurple;
+}
+
+.cabecera ul {
+    list-style-type: none; /* quitar puntos y margenes de los enlaces */
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+  
+.cabecera li a {
+    display: block;     /*cada uno de los enlaces se comportan como un bloque*/
+    color: rebeccapurple;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none; /*quitar subrayado del enlace*/
+}
+
+
+
+.contenido {
+    margin-top: 10px;
+    
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+    column-gap: 15px;
+
+    color: black;
+    border-radius: 20px 20px 20px 20px ;
+}
+
+.principal {
+    border-radius: 20px 20px 20px 20px ;
+    background-color: aquamarine;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px;
+}
+
+.ficha {
+    display: flex;
+    justify-content: center;
+    border-radius: 20px 20px 20px 20px ;
+    background-color: rgb(186, 60, 224);
+}
+
+.ficha:hover {
+    background-color: white;
+}
+
+.ficha img{
+    width:  150px;
+    height: 150px;
+    object-fit: contain;
+}
+
+.ficha a {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    text-decoration: none;
+}
+
+.ficha h5 {
+   margin-top: 0px;
+}
+
+.auxiliar {
+    background-color: rgb(78, 167, 137);
+    border-radius: 20px 20px 20px 20px ;
+}
+
+.auxiliar ul {
+    list-style-type: none; /* quitar puntos y margenes de los enlaces */
+    display: flex;
+    flex-direction: column;
+}
+
+.auxiliar li a {
+    display: block;     /*cada uno de los enlaces se comportan como un bloque*/
+    color: rebeccapurple;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.auxiliar h4 {
+    margin-left: 10px;
+}
+
+li a:hover {
+    color: white;
+}
+
+footer {
+    background-color: aquamarine;
+    color: black;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 20px 20px 20px 20px ;
+    text-align: center;
+}
+
+
+
+

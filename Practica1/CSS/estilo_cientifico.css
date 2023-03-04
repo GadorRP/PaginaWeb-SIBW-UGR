@@ -1,0 +1,126 @@
+/* selector {declaracion; atributovalor} */
+
+html {
+    background-color: black
+}
+
+.cabecera {
+    background-color: aquamarine;
+    border-radius: 20px 20px 20px 20px ;
+
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+#titulo {
+    color: rebeccapurple;
+}
+
+.cabecera ul {
+    list-style-type: none; /* quitar puntos y margenes de los enlaces */
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+  
+.cabecera li a {
+    display: block;     /*cada uno de los enlaces se comportan como un bloque*/
+    color: rebeccapurple;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none; /*quitar subrayado del enlace*/
+}
+
+.contenido {
+    margin-top: 10px;
+    
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+    column-gap: 15px;
+
+    color: black;
+    border-radius: 20px 20px 20px 20px ;
+}
+
+.cientifico {
+    border-radius: 20px 20px 20px 20px ;
+    background-color: rgba(127, 255, 212, 0.548);
+    padding: 30px;
+    display: grid;
+    grid-template-areas: 
+    'texto texto fotos'
+    'texto texto fotos'
+    'botones botones botones';
+    gap: 20px;
+}
+
+.texto h1{
+    margin: 0px;
+    font-size: 40px;
+}
+
+.texto h4 {
+    margin: 0px;
+}
+
+.fotos {
+    text-align: center;
+}
+.desc{
+    margin-bottom: 20px;
+}
+
+.botones ul {
+    list-style-type: none; /* quitar puntos y margenes de los enlaces */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.botones li a{
+    display: block;     /*cada uno de los enlaces se comportan como un bloque*/
+    color: rgb(0, 0, 0);
+    padding: 14px 16px;
+    text-decoration: none;
+    
+}
+
+
+.auxiliar {
+    background-color: rgba(78, 167, 137, 0.699);
+    border-radius: 20px 20px 20px 20px ;
+}
+
+.auxiliar ul {
+    list-style-type: none; /* quitar puntos y margenes de los enlaces */
+    display: flex;
+    flex-direction: column;
+}
+
+.auxiliar li a {
+    display: block;     /*cada uno de los enlaces se comportan como un bloque*/
+    color: rebeccapurple;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.auxiliar h4 {
+    margin-left: 10px;
+}
+
+li a:hover {
+    color: white;
+}
+
+footer {
+    background-color: aquamarine;
+    color: black;
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 20px 20px 20px 20px ;
+    text-align: center;
+}
+
