@@ -1,12 +1,14 @@
 /* selector {declaracion; atributovalor} */
 
 html {
-    background-color: black
+    background-color: rgba(0, 0, 0, 0.89);
 }
 
 .cabecera {
-    background-color: aquamarine;
+    background-color: rgba(187, 61, 250, 0.85);
     border-radius: 20px 20px 20px 20px ;
+    font-family: 'Garamon', 'Goudy Old Style';
+    font-size: 25px;
 
     display: flex; 
     justify-content: space-between;
@@ -15,7 +17,7 @@ html {
 }
 
 #titulo {
-    color: rebeccapurple;
+    color: black;
 }
 
 .cabecera ul {
@@ -27,10 +29,14 @@ html {
   
 .cabecera li a {
     display: block;     /*cada uno de los enlaces se comportan como un bloque*/
-    color: rebeccapurple;
+    color: rgb(0, 0, 0);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none; /*quitar subrayado del enlace*/
+}
+
+.cabecera li a:hover {
+    font-size: larger;
 }
 
 .contenido {
@@ -47,7 +53,7 @@ html {
 
 .cientifico {
     border-radius: 20px 20px 20px 20px ;
-    background-color: rgba(127, 255, 212, 0.548);
+    background-color: rgba(187, 61, 250, 0.85);
     padding: 30px;
     display: grid;
     grid-template-areas: 
@@ -55,6 +61,11 @@ html {
     'texto texto fotos'
     'botones botones botones';
     gap: 20px;
+}
+
+.texto {
+    grid-area: texto;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .texto h1{
@@ -66,11 +77,28 @@ html {
     margin: 0px;
 }
 
+.texto ul {
+    margin: 0px;
+}
+
+.texto li a {
+    color: rgb(0, 0, 0);
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
 .fotos {
+    margin-top: 20px;
     text-align: center;
+    grid-area: fotos;
 }
 .desc{
     margin-bottom: 20px;
+    font-style: italic;
+}
+
+.botones {
+    grid-area: botones;
 }
 
 .botones ul {
@@ -85,12 +113,11 @@ html {
     color: rgb(0, 0, 0);
     padding: 14px 16px;
     text-decoration: none;
-    
 }
 
 
 .auxiliar {
-    background-color: rgba(78, 167, 137, 0.699);
+    background-color: rgba(187, 61, 250, 0.85);
     border-radius: 20px 20px 20px 20px ;
 }
 
@@ -102,21 +129,38 @@ html {
 
 .auxiliar li a {
     display: block;     /*cada uno de los enlaces se comportan como un bloque*/
-    color: rebeccapurple;
+    color: rgb(0, 0, 0);
     padding: 14px 16px;
     text-decoration: none;
 }
 
+.auxiliar h3 {
+    margin-left: 15px;
+    margin-bottom: 0px;
+    margin-top: 5px;
+    font-family: 'Goudy Old Style', 'Westminster';
+    font-size: 30px;
+}
+
 .auxiliar h4 {
-    margin-left: 10px;
+    margin-left: 25px;
+    margin-bottom: 0px;
+    font-family: 'Times New Roman';
+    font-style: italic;
+    font-size: 20px;
 }
 
 li a:hover {
     color: white;
 }
 
+
+.contenido li a:hover {
+    text-decoration-line: underline;
+}
+
 footer {
-    background-color: aquamarine;
+    background-color: rgba(187, 61, 250, 0.85);
     color: black;
     margin-top: 10px;
     padding: 20px;
