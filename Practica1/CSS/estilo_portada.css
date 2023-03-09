@@ -6,7 +6,7 @@ html {
 
 
 .cabecera {
-    background-color : rgba(187, 61, 250, 0.85);
+    background-color : rgba(208, 125, 250, 0.85);
     border-radius: 20px 20px 20px 20px ;
     font-family: 'Garamon', 'Goudy Old Style';
     font-size: 25px;
@@ -55,7 +55,7 @@ html {
 
 .principal {
     border-radius: 20px 20px 20px 20px ;
-    background-color: rgb(187, 61, 250);
+    background-color: rgba(208, 125, 250, 0.85);
     padding: 30px;
     display: grid;
     grid-template-columns: auto auto auto;
@@ -66,7 +66,7 @@ html {
     display: flex;
     justify-content: center;
     border-radius: 20px 20px 20px 20px ;
-    background-color: darkorchid;
+    background-color: rgb(174, 67, 228);
 }
 
 .ficha:hover {
@@ -94,7 +94,7 @@ html {
 
 .auxiliar {
 
-    background-color: rgb(187, 61, 250);
+    background-color: rgba(208, 125, 250, 0.85);
     border-radius: 20px 20px 20px 20px ;
 }
 
@@ -137,7 +137,7 @@ li a:hover {
 }
 
 footer {
-    background-color: rgba(187, 61, 250, 0.85);
+    background-color: rgba(208, 125, 250, 0.85);
     color: black;
     margin-top: 10px;
     padding: 10px;
