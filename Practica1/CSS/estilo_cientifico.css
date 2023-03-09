@@ -5,7 +5,7 @@ html {
 }
 
 .cabecera {
-    background-color: rgba(187, 61, 250, 0.85);
+    background-color:  rgba(208, 125, 250, 0.85);
     border-radius: 20px 20px 20px 20px ;
     font-family: 'Garamon', 'Goudy Old Style';
     font-size: 25px;
@@ -53,7 +53,7 @@ html {
 
 .cientifico {
     border-radius: 20px 20px 20px 20px ;
-    background-color: rgba(187, 61, 250, 0.85);
+    background-color:  rgba(208, 125, 250, 0.85);
     padding: 30px;
     display: grid;
     grid-template-areas: 
@@ -117,7 +117,7 @@ html {
 
 
 .auxiliar {
-    background-color: rgba(187, 61, 250, 0.85);
+    background-color:  rgba(208, 125, 250, 0.85);
     border-radius: 20px 20px 20px 20px ;
 }
 
@@ -160,7 +160,7 @@ li a:hover {
 }
 
 footer {
-    background-color: rgba(187, 61, 250, 0.85);
+    background-color:  rgba(208, 125, 250, 0.85);
     color: black;
     margin-top: 10px;
     padding: 20px;
