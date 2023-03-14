@@ -1,0 +1,239 @@
+
+
+html {
+    background-color: rgba(0, 0, 0, 0.89);
+}
+
+.cabecera {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    text-align:center;
+    padding: 10px;
+    
+    background-image: url(../imagenes/fondo.jpeg);
+    border-radius: 20px 20px 20px 20px ;
+    font-family: 'Garamon', 'Goudy Old Style';
+    font-size: 25px;
+}
+
+#titulo {
+    color: black;
+}
+
+.cabecera ul {
+    list-style-type: none; /* quitar puntos y margenes de los enlaces */
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+  
+.cabecera li a {
+    display: block;     /*cada uno de los enlaces se comportan como un bloque*/
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none; /*quitar subrayado del enlace*/
+}
+
+.cabecera li a:hover {
+    font-size: larger;  /*Al pasar el raton por encima la letra se hace mas grande*/
+}
+
+.contenido {
+    margin-top: 10px;
+    
+    display: grid;
+    grid-template-columns: 2fr 1fr; /*dos tercios para la información y uno para los enlaces adicionales*/
+    grid-template-areas:  /*Seccion de comentarios debajo de la infomación*/
+    'cientifico  auxiliar'
+    'cientifico  auxiliar'
+    'comentarios comentarios';
+    gap: 10px;
+    column-gap: 15px;
+    color: black;
+    border-radius: 20px 20px 20px 20px ;
+}
+
+.cientifico {
+    grid-area: cientifico;
+    border-radius: 20px 20px 20px 20px ;
+    background-color:  rgba(208, 125, 250, 0.85);
+    padding: 30px;
+    display: grid;
+    grid-template-areas: /*Disposición para poner las fotos en el lateral y los botones sociales abajo*/
+    'texto texto fotos'
+    'texto texto fotos'
+    'botones botones botones';
+    gap: 20px;
+}
+
+.texto {
+    grid-area: texto; /*Para ser reconocido por el grid*/
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.texto h1{
+    margin: 0px;
+    font-size: 40px;
+}
+
+.texto h4 {
+    margin: 0px;
+}
+
+.texto ul {
+    margin: 0px;
+}
+
+.texto li a {
+    color: rgb(0, 0, 0);
+    padding: 14px 16px;
+    text-decoration: none; /*Quitar subrayado del enlace*/
+}
+
+.fotos {
+    margin-top: 20px;
+    text-align: center; /*Pie de foto en el centro de la columna*/
+    grid-area: fotos; /*Para ser reconocido por el grid*/
+}
+.desc{
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.botones {
+    grid-area: botones; /*Para ser reconocido por el grid*/
+}
+
+.botones ul {
+    list-style-type: none; /* quitar puntos y margenes de los enlaces */
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /*Botones en el centro del contenedor horizontal flex*/
+    align-items: center;
+}
+
+.botones li a{
+    display: block;     /*cada uno de los enlaces se comportan como un bloque*/
+    color: rgb(0, 0, 0);
+    padding: 14px 16px;
+}
+
+#boton {
+    background-image: url(../imagenes/fondo.jpeg);
+    color: rgb(0, 0, 0);
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 20px 20px 20px 20px;
+    padding: 10px;
+    
+}
+
+.SeccionComents {
+    grid-area: comentarios;
+    display: none;
+    grid-template-columns: 1fr 2fr;
+    background-color:  rgba(208, 125, 250, 0.85);
+    border-radius: 20px 20px 20px 20px ;
+}
+
+#formulario {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;   
+}
+
+#formulario input {
+    width: 75%;
+}
+
+#formulario button {
+    flex-grow: 50%;
+}
+
+#comentario {
+    height: 150px;
+}
+
+#OtrosComentarios {
+    margin: 30px;
+    background-color: rgb(53, 54, 56);
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#OtrosComentarios .Comment-anterior {
+    display: block;
+    background-color: rgba(215, 184, 231, 0.85);
+    border-radius: 20px 20px 20px 20px ;
+    padding: 5px;
+    margin: 10px;
+}
+
+#OtrosComentarios .Comment-anterior .titulo-comentario {
+    margin: 10px;
+    margin-bottom: 0px;
+    display: inline-block;
+}
+
+#OtrosComentarios .Comment-anterior .texto-comentario {
+    margin: 10px;
+    
+}
+
+.auxiliar {
+    grid-area: auxiliar;
+    background-color:  rgba(208, 125, 250, 0.85);
+    border-radius: 20px 20px 20px 20px ;
+}
+
+.auxiliar ul {
+    list-style-type: none; /* quitar puntos y margenes de los enlaces */
+    display: flex;
+    flex-direction: column;
+}
+
+.auxiliar li a {
+    display: block;     /*cada uno de los enlaces se comportan como un bloque*/
+    color: rgb(0, 0, 0);
+    padding: 14px 16px;
+    text-decoration: none; /*Quitar subrayado del enlace*/
+}
+
+.auxiliar h3 {
+    margin-left: 15px; 
+    margin-bottom: 0px;
+    margin-top: 5px;
+    font-family: 'Goudy Old Style', 'Westminster';
+    font-size: 30px;
+}
+
+.auxiliar h4 {
+    margin-left: 25px;
+    margin-bottom: 0px;
+    font-family: 'Times New Roman';
+    font-style: italic;
+    font-size: 20px;
+}
+
+li a:hover {
+    color: white; /*AL pasar el boton por encima cambia de color a blanco*/
+}
+
+
+.contenido li a:hover {
+    text-decoration-line: underline; /*Al pasar el raton el enlace se subraya*/
+}
+
+footer {
+    background-image: url(../imagenes/fondo.jpeg);
+    color: black;
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 20px 20px 20px 20px ;
+    text-align: center;
+}
+
