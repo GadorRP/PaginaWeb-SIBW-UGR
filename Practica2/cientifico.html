@@ -95,7 +95,7 @@
                                 <li><a href="./cientifico_imprimir.html">
                                     <img src="./imagenes/imprimir-icono.png" width="50px">
                                 </a></li>
-                                <button type ="button" id = "boton">Comentarios</button>
+                                <button type ="button" id = "boton-comentario">Comentarios</button>
                             </ul>
                         </nav>
                     </div>
@@ -139,21 +139,23 @@
                         <label for="lineaNombre" id="idNombre">Nombre </label>
                         <input type="text" id="lineaNombre" name="lineaNombre">
                         <label for="lineaCorreo" id="idCorreo">Correo </label>
-                        <input type="text" id="lineaCorreo" name="lineacorreo">
+                        <input type="email" id="lineaCorreo" name="lineaCorreo">
                         <label for="comentario" id="idcomentario">Comentario </label>
                         <textarea id="comentario" name="comentario"></textarea>
-                        <button type="reset" id="borrador">Limpiar</button>
-                        <button type="button" id="enviar">Enviar</button>
+                        <div class="botones-formulario">
+                            <button type="button" id="borrador">Limpiar</button>
+                            <button type="button" id="boton-enviar">Enviar</button>
+                        </div>
                     </form>
                     <div id = "OtrosComentarios">
                           <div class="Comment-anterior">
-                            <h3 class="titulo-comentario">Juan Pérez</h3>
-                            <p class="titulo-comentario">Publicado el 1 de enero de 2023</p>
+                            <h3 class="titulo-comentario">Ramón Salamanca Hurtado</h3>
+                            <p class="titulo-comentario">Publicado el 20/5/2022 a las 12:56:45</p>
                             <p class="texto-comentario">¡Excelente artículo! Me encantó el contenido y el estilo de escritura.</p>
                           </div>
                           <div class="Comment-anterior">
-                            <h3 class ="titulo-comentario">María García</h3>
-                            <p class="titulo-comentario">Publicado el 2 de enero de 2023</p>
+                            <h3 class ="titulo-comentario">Antonio Imbert De La Maza</h3>
+                            <p class="titulo-comentario">Publicado el 5/11/2022 a las 20:32:03</p>
                             <p class="texto-comentario">Muy interesante. Me gustaría leer más sobre este tema.</p>
                           </div>
                     </div>

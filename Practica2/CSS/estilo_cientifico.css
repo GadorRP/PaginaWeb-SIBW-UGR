@@ -120,7 +120,7 @@ html {
     padding: 14px 16px;
 }
 
-#boton {
+#boton-comentario{
     background-image: url(../imagenes/fondo.jpeg);
     color: rgb(0, 0, 0);
     text-align: center;
@@ -147,14 +147,30 @@ html {
 
 #formulario input {
     width: 75%;
+    outline: none;
+}
+
+#formulario .botones-formulario {
+    display: flex;
+    justify-content: space-between;
 }
 
 #formulario button {
-    flex-grow: 50%;
+    width: 45%;
+    background-color: rgb(53, 54, 56);
+    margin-top: 5px;
+}
+
+input {
+    background-color: rgb(53, 54, 56);
+    color: white;
 }
 
 #comentario {
     height: 150px;
+    background-color: rgb(53, 54, 56);
+    color: white;
+    outline: none;
 }
 
 #OtrosComentarios {
@@ -162,7 +178,8 @@ html {
     background-color: rgb(53, 54, 56);
     display: flex;
     flex-direction: column;
-    
+    overflow: auto;
+    max-height: 360px;
 }
 
 #OtrosComentarios .Comment-anterior {
@@ -181,7 +198,6 @@ html {
 
 #OtrosComentarios .Comment-anterior .texto-comentario {
     margin: 10px;
-    
 }
 
 .auxiliar {
