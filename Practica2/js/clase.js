@@ -15,11 +15,10 @@ const correoWeb = document.getElementById("lineaCorreo");
 
  /*---------------Desplegar seccion comentarios---------------*/ 
 function modificar() {
-    if (SeccionComentarios.style.display == "grid")
-        SeccionComentarios.style.display = "none";
+    if (SeccionComentarios.style.right == "0px") /*Cuanto esta desplegado */
+        SeccionComentarios.style.right = "-600px"; /*Lo escondemos a un lado (lo situamos mas alla de su propio ancho)*/
     else {
-        SeccionComentarios.style.display = "grid";
-        SeccionComentarios.scrollIntoView({ behavior: "smooth" });
+        SeccionComentarios.style.right = "0px";
     }
 }
 
@@ -61,10 +60,11 @@ function obtenerHoraActual(){
   const minutos = fechaActual.getMinutes();
   const segundos = fechaActual.getSeconds();
 
-  return "Publicado el " + dia + "/"  + mes + "/" + anio + " a las " + hora + ":" + minutos + ":" + segundos;
+  return dia + "/"  + mes + "/" + anio + " a las " + hora + ":" + minutos + ":" + segundos;
 }
 
-let numeroComentario = 0;
+
+let numeroComentario = 0; //sera utilizado para identificar cada uno de los nuevos comentarios
 
 /*---------------Agregar un comentario a la caja de comentarios---------------*/
 
@@ -77,8 +77,6 @@ function agregarComentario() {
   if (validarCampos() == 1 || validarEmail() == 1){
     return 1;
   }
-
-
 
   /*Creamos un nuevo comentario de tipo div y la asignamos su clase*/ 
   const nuevoComentario = document.createElement("div");

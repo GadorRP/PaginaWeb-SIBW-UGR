@@ -45,10 +45,6 @@ html {
     
     display: grid;
     grid-template-columns: 2fr 1fr; /*dos tercios para la información y uno para los enlaces adicionales*/
-    grid-template-areas:  /*Seccion de comentarios debajo de la infomación*/
-    'cientifico  auxiliar'
-    'cientifico  auxiliar'
-    'comentarios comentarios';
     gap: 10px;
     column-gap: 15px;
     color: black;
@@ -56,7 +52,6 @@ html {
 }
 
 .cientifico {
-    grid-area: cientifico;
     border-radius: 20px 20px 20px 20px ;
     background-color:  rgba(208, 125, 250, 0.85);
     padding: 30px;
@@ -131,77 +126,7 @@ html {
     
 }
 
-.SeccionComents {
-    grid-area: comentarios;
-    display: none;
-    grid-template-columns: 1fr 2fr;
-    background-color:  rgba(208, 125, 250, 0.85);
-    border-radius: 20px 20px 20px 20px ;
-}
-
-#formulario {
-    display: flex;
-    flex-direction: column;
-    padding: 30px;   
-}
-
-#formulario input {
-    width: 75%;
-    outline: none;
-}
-
-#formulario .botones-formulario {
-    display: flex;
-    justify-content: space-between;
-}
-
-#formulario button {
-    width: 45%;
-    background-color: rgb(53, 54, 56);
-    margin-top: 5px;
-}
-
-input {
-    background-color: rgb(53, 54, 56);
-    color: white;
-}
-
-#comentario {
-    height: 150px;
-    background-color: rgb(53, 54, 56);
-    color: white;
-    outline: none;
-}
-
-#OtrosComentarios {
-    margin: 30px;
-    background-color: rgb(53, 54, 56);
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-    max-height: 360px;
-}
-
-#OtrosComentarios .Comment-anterior {
-    display: block;
-    background-color: rgba(215, 184, 231, 0.85);
-    border-radius: 20px 20px 20px 20px ;
-    padding: 5px;
-    margin: 10px;
-}
-
-#OtrosComentarios .Comment-anterior .titulo-comentario {
-    margin: 10px;
-    margin-bottom: 0px;
-    display: inline-block;
-}
-
-#OtrosComentarios .Comment-anterior .texto-comentario {
-    margin: 10px;
-}
-
 .auxiliar {
-    grid-area: auxiliar;
     background-color:  rgba(208, 125, 250, 0.85);
     border-radius: 20px 20px 20px 20px ;
 }
@@ -242,6 +167,90 @@ li a:hover {
 
 .contenido li a:hover {
     text-decoration-line: underline; /*Al pasar el raton el enlace se subraya*/
+}
+
+.SeccionComents {
+    position: fixed; /* Fijar la posición en la pantalla */
+    top: 0; 
+    right: -600px ; /* Ocultamos la seccion a la derecha  */
+    z-index: 9999; /* Se superpone a cualquier elemento*/
+    transition: all 0.3s ease-in-out; /* transicion para que parezca que se despliega*/
+
+    max-width: 500px; 
+    height: 100vh; /*Ocupar todo el alto de la ventana*/
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to right,rgb(140, 0, 255), rgb(173, 3, 173) );
+    
+}
+
+.SeccionComents h2 {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+#formulario {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;   
+    margin-top: 5px;
+}
+
+#formulario input {
+    width: 75%;
+    outline: none; /*Quitar el efecto cuando es seleccionado*/
+}
+
+#formulario .botones-formulario {
+    display: flex;
+    justify-content: space-between;
+}
+
+#formulario button {
+    width: 45%;
+    background-color: rgb(53, 54, 56);
+    margin-top: 5px;
+    color:white;
+}
+
+input {
+    background-color: rgb(53, 54, 56);
+    color: white;
+}
+
+#comentario {
+    height: 100px;
+    background-color: rgb(53, 54, 56);
+    color: white;
+    outline: none;
+}
+
+#OtrosComentarios {
+    margin: 10px;
+    background-color: rgb(53, 54, 56);
+    display: flex;
+    flex: 1; /*Ocupe todo el espacio disponible*/
+    flex-direction: column;
+    overflow: auto; /*Añade barras de scroll cuando el contenido sobrepasa al area*/
+    
+}
+
+#OtrosComentarios .Comment-anterior {
+    display: block;
+    background-color: rgba(207, 166, 228, 0.85);
+    border-radius: 20px 20px 20px 20px ;
+    padding: 5px;
+    margin: 5px;
+}
+
+#OtrosComentarios .Comment-anterior .titulo-comentario {
+    margin: 10px;
+    margin-bottom: 0px;
+    display: inline-block;
+}
+
+#OtrosComentarios .Comment-anterior .texto-comentario {
+    margin: 10px;
 }
 
 footer {
