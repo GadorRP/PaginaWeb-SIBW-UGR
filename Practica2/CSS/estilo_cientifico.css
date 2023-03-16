@@ -181,7 +181,6 @@ li a:hover {
     display: flex;
     flex-direction: column;
     background: linear-gradient(to right,rgb(140, 0, 255), rgb(173, 3, 173) );
-    
 }
 
 .SeccionComents h2 {
