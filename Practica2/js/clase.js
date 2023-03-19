@@ -44,7 +44,7 @@ function validarEmail() {
 /*---------------Funcion para comprobar que todos los campos han sido rellenados---------------*/
 
 function validarCampos() {
-  if (nombreWeb.value == "" || correoWeb.value == "" || comentarioWeb == ""){
+  if (nombreWeb.value == "" || correoWeb.value == "" || comentarioWeb.value == ""){
     alert("Por favor rellene todos los campos antes de enviar");
     return 1;
   }
