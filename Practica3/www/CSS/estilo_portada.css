@@ -1,0 +1,48 @@
+
+
+.principal {
+    border-radius: 20px 20px 20px 20px ;
+    background-color: rgba(208, 125, 250, 0.85);
+    
+    padding: 30px;
+    display: grid;
+    grid-template-columns: auto auto auto; /*3 columnas para las fichas*/
+    gap: 20px;
+}
+
+.ficha {
+    display: flex;
+    justify-content: center;
+    border-radius: 20px 20px 20px 20px ;
+    background-image: url(../imagenes/background2.jpeg);
+}
+
+.ficha:hover {
+    background-image: none; /*Al pasar el raton el fondo ya no es la imagen sino de color blanco*/
+    background-color: white;
+}
+
+.ficha img{
+    width:  150px;
+    height: 150px;
+    object-fit: contain; /*Para que la imagen sea mas pequeña que la ficha*/
+}
+
+.ficha a {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    text-decoration: none;
+    font-size: larger;
+    font-family: 'Serif';
+    
+}
+
+.ficha h5 {
+   margin-top: 0px;
+}
+
+
+
+
+
+
