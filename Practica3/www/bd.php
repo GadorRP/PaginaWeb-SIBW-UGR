@@ -1,12 +1,35 @@
 <?php
+    include("bd_cientifico.php");
+
     function conectar(){
-        $mysqli = new mysqli("database" , "root" , "tiger" , "SIBW" );
+        $mysqli = new mysqli("database" , "cientifico" , "paginaWeb" , "SIBW" );
 
         if ($mysqli->connect_errno) {
             echo("Fallo al conectar: ". $mysqli->connect_error);
         }
 
         return $mysqli;
+    }
+
+    function obtenerIcono($mysqli){
+
+        $res = $mysqli->query("SELECT datos 
+                                FROM imagenes 
+                                WHERE descripcion = 'icono' ");
+
+        $foto = array();
+        
+        if ($res->num_rows > 0){
+            $row = $res->fetch_assoc();
+            
+            $foto = array('foto' => $row['datos']);
+        }
+
+        $imagen_codificada = base64_encode($foto['foto']);
+        $url_imagen = 'data:image/png;base64,' . $imagen_codificada;
+        $foto['foto'] = $url_imagen;
+        
+        return $foto;
     }
 
     function obtenerFotos($mysqli){
@@ -84,6 +107,10 @@
         $mysqli = conectar();
         $final = array();
 
+        //ICONO 
+        $icono = obtenerIcono($mysqli);
+        array_push($final,$icono);
+
         //FOTOS
         $fotos = obtenerFotos($mysqli);
         array_push($final,$fotos);
@@ -100,41 +127,16 @@
         return $final;
     }
 
-    function obtenerFotosCientifica($mysqli , $id){
-
-        $res = $mysqli->query("SELECT datos , descripcion 
-                               FROM imagenes 
-                               WHERE cientifico_id = $id
-                               AND descripcion IS NOT NULL;
-                            ");
-        
-        $fotos = array();
-
-        if ($res->num_rows > 0){
-            
-            while ($row = $res->fetch_assoc()) {
-                $auxiliar = array(
-                    'descripcion' => $row['descripcion'],
-                    'binario' => $row['datos']
-                );
-                array_push($fotos,$auxiliar);
-            }
-        }
-
-        for ( $i = 0; $i < count($fotos); $i++){
-            $imagen_codificada = base64_encode($fotos[$i]['binario']);
-            $url_imagen = 'data:image/jpeg;base64,' . $imagen_codificada;
-            $fotos[$i]['binario'] = $url_imagen;
-        }
-
-        return $fotos;
-    }
+    
 
     function paginaCientifica($id) {
 
         $mysqli = conectar();
         $final = array();
 
+        //ICONO 
+        $icono = obtenerIcono($mysqli);
+        array_push($final,$icono);
 
         //FOTOS CIENTIFICA
         $fotos = obtenerFotosCientifica($mysqli, $id);
@@ -151,6 +153,14 @@
         //ENLACES AUXILIARES
         $enlacesAuxiliares = obtenerEnlaces($mysqli);
         array_push($final,$enlacesAuxiliares);
+       
+        //BOTONES
+        $botones = obtenerBotones($mysqli, $id);
+        array_push($final,$botones);
+
+        //COMENTARIOS
+        $comentarios = obtenerComentarios($mysqli, $id);
+        array_push($final,$comentarios);
        
 
         return $final;

@@ -6,12 +6,15 @@
     $twig = new \Twig\Environment($loader);
 
     $todo = paginaPrincipal();
-    $fotos = $todo[0];
-    $nombres = $todo[1];
-    $enlaces = $todo[2];
+
+    $icono = $todo[0];
+    $fotos = $todo[1];
+    $nombres = $todo[2];
+    $enlaces = $todo[3];
 
     $tam = count($nombres);
    
-    echo $twig->render('portada.html',['nombres' => $nombres, 'fotos' => $fotos, 'tam' => $tam, 'enlaces' => $enlaces]);
+    echo $twig->render('portada.html',['nombres' => $nombres, 'fotos' => $fotos, 
+     'icono' => $icono,'tam' => $tam, 'enlaces' => $enlaces]);
 
 ?>

@@ -10,7 +10,7 @@ html {
     justify-content: space-between; /*Cada elemento en un extremo al haber dos*/
     align-items: center;
     padding: 10px;
-    margin-right: 75px;
+    margin-right: 200px;
     margin-left: 20px;
     font-family: 'Times New Roman';
     font-size: 25px;
@@ -77,6 +77,14 @@ html {
 
 .auxiliar {
     display: none; /*No mostramos el menu auxiliar ni ocupa espacio*/
+}
+
+.ampliacion {
+    display: none;
+}
+
+#SeccionComents {
+    display: none;
 }
 
 footer {

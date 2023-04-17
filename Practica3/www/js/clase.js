@@ -68,23 +68,14 @@ let numeroComentario = 0; //sera utilizado para identificar cada uno de los nuev
 
 /*---------------Agregar un comentario a la caja de comentarios---------------*/
 
-function agregarComentario() {
-  /*Obtenemos los datos introducidos por el usuario */
-  const valorNombre = nombreWeb.value;
-  const contenidoComment = comentarioWeb.value;
-
-  /*Comprobamos si si todos los campos han sido rellenados y es una direccion valida de correo valida*/
-  if (validarCampos() == 1 || validarEmail() == 1){
-    return 1;
-  }
+function agregarComentario(valorNombre, contenidoComment, fechaYHora) {
 
   /*Creamos un nuevo comentario de tipo div y la asignamos su clase*/ 
   const nuevoComentario = document.createElement("div");
   nuevoComentario.className = "Comment-anterior";
 
   /*Para que al añadir un nuevo comentario se haga scroll identificamos el nuevo comentario*/ 
-  numeroComentario++;
-  nuevoComentario.setAttribute("id", "comentario-" + numeroComentario);
+  nuevoComentario.setAttribute("id", "comentarioNuevo");
 
   /*Creamos los diferentes elementos del comentario y le asignamos
     los valores introducidos por el usuario así como su clase*/ 
@@ -94,7 +85,6 @@ function agregarComentario() {
 
   /*Para obtener la hora llamamos a la funcion antes creada */
   var fecha = document.createElement("p");
-  const fechaYHora = obtenerHoraActual();
   fecha.textContent = fechaYHora;
   fecha.className = "titulo-comentario";
 
@@ -111,14 +101,56 @@ function agregarComentario() {
   contenedorComentarios.appendChild(nuevoComentario);
 
   /*Hacemos scroll al nuevo comentario*/
-  const ultimoComentario = document.getElementById("comentario-" + numeroComentario);
+  const ultimoComentario = document.getElementById("comentarioNuevo");
   ultimoComentario.scrollIntoView({ behavior: "smooth" });
 
   /*Borramos los valores del formulario ya introducidos*/ 
   formulario.reset()
 }
 
-envio.addEventListener("click",agregarComentario);
+function enviarComentario() {
+  
+  /*Comprobamos si si todos los campos han sido rellenados y es una direccion valida de correo valida*/
+  if (validarCampos() == 1 || validarEmail() == 1){
+    return 1;
+  }
+
+  const formData = new FormData(formulario); // Crea un objeto FormData con los datos del formulario
+
+  //obtengo los datos del formulario y los añado
+  const nombre = nombreWeb.value;
+  const comentario = comentarioWeb.value;
+  const correo = correoWeb.value;
+
+  formData.append("lineanombre", nombre);
+  formData.append("lineacorreo", correo);
+  formData.append("comentario", comentario);
+
+  //obtengo la fecha y la hora y la añado al formulario
+  const fechaYHora = obtenerHoraActual();
+  formData.append("fechaYHora", fechaYHora);
+
+  //obtengo el id del cientifico
+  var id = document.getElementById("id_cientifico").dataset.id;
+  formData.append("idCientifico", id);
+  
+  // Envío los datos mediante una petición POST a mi archivo PHP
+  fetch("formulario.php", {
+    method: "POST",
+    body: formData
+  })
+  .then(response => response.json())
+  .catch(error => {
+    // Maneja el error
+    console.error(error);
+  });
+
+    agregarComentario(nombre,comentario,fechaYHora);
+
+}
+
+
+envio.addEventListener("click",enviarComentario);
 
 
 /*---------------Censurar lista de palabras---------------*/

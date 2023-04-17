@@ -11,95 +11,55 @@
 {% block central %}
     <div class = "cientifico">
         <div class = "texto" >
-            <h1> {{ nombre }}</h1>
-            <h4> 30 de noviembre de 1938 Canero (España) -
-                    7 de noviembre de 2019 Madrid (España)</h4>
-            <p>
-                Discípula de Severo Ochoa (1905-1962), médico y que influyó en ella,
-                alentando su interés por las ciencias, y de Margarita Falgueras Gatell (1912/1913-2014), maestra. 
-                Tuvo dos hermanos, también científicos: José Salas Falgueras (1937-2008) y 
-                María Luisa "Marisa" Salas Falgueras. 
-            </p>
+            <h1> {{ info.nombre }}</h1>
+            <h4> {{ info.fecha_nacimiento }} {{ info.lugar_nacimiento }} -
+                {{ info.fecha_muerte }} {{ info.lugar_muerte }} </h4>
 
-            <p> Estudió en el Colegio de la Asunción de Gijón desde los tres hasta los dieciséis años,​ cuando terminó el PREU y se marchó a Madrid 
-                para realizar las pruebas de acceso de Química y Medicina. Ingresó en la facultad de 
-                Químicas y en el verano de 1958 conoció a Severo Ochoa, quien tuvo influencia en su 
-                carrera y la orientó hacia la bioquímica. Obtuvo la licenciatura en Ciencias Químicas 
-                por la Universidad Complutense en 1960, con la calificación de sobresaliente.Realizó 
-                su doctorado bajo la dirección de Alberto Sols, obteniendo el grado de doctora en Ciencias
-                por la Universidad Complutense en 1963 (tesis: Especificidad anomérica de la glucosafosfato 
-                isomerasa y otros enzimas y anomerización de hexosafosfatos).Doctora Honoris Causa por la 
-                UNED en 2011.
-            </p>
+            <p> {{ info.biografia|raw }}</p>
 
-            <p> En 1964, junto a su marido, Eladio Viñuela, con quien se casó en 1963, emigró a 
-                Estados Unidos, al Departamento Científico de la Escuela de Medicina de la Universidad de Nueva York, 
-                donde ambos permanecieron hasta 1967. En ese año regresaron a España con ayuda de financiación 
-                estadounidense para desarrollar la biología molecular. 
-            </p>
-
-            <p> El 7 de noviembre de 2019, fallece de una parada cardiorrespiratoria tras una 
-                complicación de una dolencia digestiva de la que iba a ser operada.
-            </p>
-
-            <h4> Para saber más: </h4>
-            <ul>
-                <li><a href="https://www.infolibre.es/veranolibre/margarita-salas-cientifica-espanola-importante-siglo-xx_1_1172685.html">
-                    Margarita Salas, la científica española más importante del siglo XX
-                </a></li>
-                <li><a href="https://www.muyinteresante.es/ciencia/2922.html">
-                    Las mayores aportaciones de Margarita Salas a la Ciencia
-                </a></li>
-                <li><a href="https://www.cervantes.es/bibliotecas_documentacion_espanol/creadores/salas_margarita_premios.htm">
-                    Premios a Margarita Salas
-                </a></li>
-            </ul>
+            <div class = "ampliacion"> 
+                <h4> Para saber más: </h4>
+                <ul>
+                    {% for i in range(0,numEnlaces) %}
+                        <li><a href="{{ enlacesCientifica[i].url }}">
+                            {{ enlacesCientifica[i].descripcion }}
+                        </a></li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
 
         <div class = "fotos">
-            <img src="./imagenes/margaritaSalasPremio.jpeg" alt="Premios inventor europeo 2019" width="200px">
-            <div class="desc"> Margarita Salas ganadora del European <br> Inventor Award 2019</div>
-            <img src="./imagenes/salas_con_ochoa.jpeg" alt="Margarita Salas junto Severo Ochoa" width="200px">
-            <div class="desc"> Margarita Salas junto a Severo Ochoa </div>
+            {% for i in range(0,numFotos) %}
+                <img src="{{ fotos[i].binario }}" alt={{ fotos[i].descripcion }} width="200px">
+                <div class="desc">{{ fotos[i].descripcion|raw }} </div>
+            {% endfor %}
         </div>
 
         <div class = "botones">
             <nav>
                 <ul>
-                    <li><a href="https://twitter.com/CIB_CSIC">
-                        <img src="./imagenes/Twitter-logo-.png" width="50px">
-                    </a></li>
-                    <li><a href="https://www.facebook.com/litteraeyletreamos/posts/2264936483743127/">
-                        <img src="./imagenes/facebook-logo.png" width="50px">
-                    </a></li>
-                    <li><a href="https://www.youtube.com/watch?v=nIPblgOXEno">
-                        <img src="./imagenes/yputube-logo.png" width="50px">
-                    </a></li>
-                    <li><a href="https://www.instagram.com/margarita.salas.oficial/">
-                        <img src="./imagenes/instagram-logo.png" width="50px">
-                    </a></li>
-                    <li><a href="./cientifico_imprimir.php">
-                        <img src="./imagenes/imprimir-icono.png" width="50px">
-                    </a></li>
+                    {% for i in range(0,4) %}
+                        <li><a href="{{ botones[i].descripcion }}">
+                            <img src="{{ botones[i].binario }}" width="50px">
+                        </a></li>
+                    {% endfor %}
                     <button type ="button" id = "boton-comentario">Comentarios</button>
                 </ul>
             </nav>
         </div>
 
         <div id = "SeccionComents" class="SeccionComents">
-                    
             <div id = "OtrosComentarios">
-                  <div class="Comment-anterior">
-                    <h3 class="titulo-comentario">Ramón Salamanca Hurtado</h3>
-                    <p class="titulo-comentario">20/5/2022 a las 12:56:45</p>
-                    <p class="texto-comentario">Me encantó el artículo sobre Margarita Salas. Su trabajo y 
-                                                logros en el campo de la ciencia son verdaderamente inspiradores</p>
-                  </div>
-                  <div class="Comment-anterior">
-                    <h3 class ="titulo-comentario">Antonio Imbert De La Maza</h3>
-                    <p class="titulo-comentario">5/11/2022 a las 20:32:03</p>
-                    <p class="texto-comentario"> Este artículo me ha dejado con ganas de aprender más sobre sus investigaciones.</p>
-                  </div>
+                {% for i in range(0,numComentarios) %}
+                <div class="Comment-anterior">
+                    <h3 class="titulo-comentario">{{ comentarios[i].nombre }}</h3>
+                    <p class="titulo-comentario">{{ comentarios[i].fecha }}</p>
+                    <p class="texto-comentario">{{ comentarios[i].comentario }}</p>
+                </div>
+                {% endfor %}
+
+                  
             </div>
 
             <form id = "formulario">
@@ -114,6 +74,7 @@
                     <button type="button" id="borrador">Limpiar</button>
                     <button type="button" id="boton-enviar">Enviar</button>
                 </div>
+                <div id="id_cientifico" data-id="{{ id }}"></div>
             </form>
             
         </div>
