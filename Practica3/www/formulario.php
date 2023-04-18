@@ -2,38 +2,64 @@
     require_once "/usr/local/lib/php/vendor/autoload.php";
     include("bd.php");
 
-
     $mysqli = conectar();
 
-    $nombre = $_POST["lineanombre"];
-    $correo = $_POST["lineacorreo"];
-    $comentario = $_POST["comentario"];
-    $fecha = $_POST["fechaYHora"];
-    $idCientifico = $_POST["idCientifico"];
+    if ($_GET['accion'] == 'obtenerArray') {
+        $palabras = obtenerPalabras($mysqli);
+        echo json_encode($palabras);
+    }
+    else{
+        
 
-    // Preparar la consulta SQL
-    $sql = "INSERT INTO comentarios (nombre, correo, comentario, fecha, id_cientifico) 
-            VALUES ('$nombre', '$correo', '$comentario', '$fecha', '$idCientifico')";
+        $nombre = $_POST["lineanombre"];
+        $correo = $_POST["lineacorreo"];
+        $comentario = $_POST["comentario"];
+        $fecha = $_POST["fechaYHora"];
+        $idCientifico = $_POST["idCientifico"];
 
-    // Ejecutar la consulta SQL
-    mysqli_query($mysqli, $sql);
+        // Preparar la consulta SQL
+        $sql = "INSERT INTO comentarios (nombre, correo, comentario, fecha, id_cientifico) 
+                VALUES ('$nombre', '$correo', '$comentario', '$fecha', '$idCientifico')";
 
-    // Crear un array asociativo con la respuesta
-    $respuesta = array(
-        'nombre' => $nombre,
-        'fecha' => $fecha,
-        'comentario' => $comentario
-    );
+        // Ejecutar la consulta SQL
+        mysqli_query($mysqli, $sql);
 
-    // Convertir el array a formato JSON
-    $respuesta_json = json_encode($respuesta);
+        // Crear un array asociativo con la respuesta
+        $respuesta = array(
+            'nombre' => $nombre,
+            'fecha' => $fecha,
+            'comentario' => $comentario
+        );
 
-    // Establecer el tipo de contenido de la respuesta como JSON
-    header('Content-Type: application/json');
+        // Convertir el array a formato JSON
+        $respuesta_json = json_encode($respuesta);
 
-    // Enviar la respuesta JSON
-    echo $respuesta_json;
+        // Establecer el tipo de contenido de la respuesta como JSON
+        header('Content-Type: application/json');
 
-    mysqli_close($mysqli);
+        // Enviar la respuesta JSON
+        echo $respuesta_json;
+
+        mysqli_close($mysqli);
+    }
+
+    function obtenerPalabras($mysqli){
+
+        $res = $mysqli->query("SELECT palabra
+                                FROM censuradas
+                            ");
+
+        $palabras = array();
+
+        if ($res->num_rows > 0){
+            while ($row = $res->fetch_assoc()) {
+                $auxiliar = array( 'palabra' => $row['palabra']);
+
+                array_push($palabras,$auxiliar);
+            }
+        }
+
+        return $palabras;
+    }
 
 ?>
