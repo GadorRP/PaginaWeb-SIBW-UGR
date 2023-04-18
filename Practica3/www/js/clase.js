@@ -141,7 +141,6 @@ function enviarComentario() {
   })
   .then(response => response.json())
   .catch(error => {
-    // Maneja el error
     console.error(error);
   });
 
@@ -155,13 +154,27 @@ envio.addEventListener("click",enviarComentario);
 
 /*---------------Censurar lista de palabras---------------*/
 
-const palabrasCensuradas = ['puta', 'gilipollas', 'maricon',
-                            'nigga','cabron', 'coño', 'polla'];
+//obtener palabras censuradas
+const palabrasCensuradas = [];
+
+//pido al archivo javascript el array de palabras
+fetch('formulario.php?accion=obtenerArray')
+  .then(response => response.json())
+  .then(data => {
+
+    for (let i in data) {
+      palabrasCensuradas.push(data[i].palabra);
+    }
+})
+  .catch(error => {
+    console.error(error);
+});
 
 comentarioWeb.addEventListener('input', function() {
   let texto = this.value; //obtengo el texto introducido
   
   palabrasCensuradas.forEach(palabra => { /*Itero por cada palabra del array de censuradas*/
+  
     const regex = new RegExp("\\b" + palabra + "\\b", 'gi');  /*Busco la palabra con limites al principio y al final*/
                                                               /*g: buscar en todas las palabras censuradas, i no distinguir entre mayusculas y minusculas*/
     texto = texto.replace(regex, '*'.repeat(palabra.length)); /*busco en el texto la expresion regular y la reemplazo*/
