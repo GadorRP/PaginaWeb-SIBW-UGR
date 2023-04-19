@@ -1,0 +1,21 @@
+{% extends "compartido.html" %}
+
+    {% block head %}
+        <title>portada.html</title>
+        {{ parent() }}
+        <link href="CSS/estilo_portada.css" rel="stylesheet" type="text/css">
+    {% endblock %}
+
+    
+    {% block central %}
+        <div class = "principal">
+            {% for i in range(0,tam -1) %}
+            <div class = "ficha">
+                <a href="./cientifico.php?ev={{ i + 1 }}">
+                    <img src="{{ fotos[i] }}" alt="Imagen de {{ nombre[i] }}" width="200px">
+                    <h5>{{ nombres[i] }}</h5>
+                </a>
+            </div> 
+            {% endfor %}
+        </div>
+    {% endblock %}
