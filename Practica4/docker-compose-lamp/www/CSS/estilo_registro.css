@@ -1,0 +1,45 @@
+
+.principal {
+    border-radius: 20px 20px 20px 20px ;
+    background-color: rgba(208, 125, 250, 0.85);
+    
+    padding: 30px;
+}
+
+#formulario {
+    display: flex;
+    flex-direction: column;   
+    margin: auto;
+    margin-top: 5px;
+    width: 700px;
+}
+
+#formulario input {
+    background-color: rgb(53, 54, 56);
+    color: white;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    margin-left: 50px;
+    width: 70%;
+    outline: none; /*Quitar el efecto cuando es seleccionado*/
+}
+
+
+#formulario button {
+    align-self: center;
+    width: 25%;
+    background-color: rgb(53, 54, 56);
+    margin-top: 5px;
+    color:white;
+
+    padding: 5px 10px; /* Ajustar el padding para reducir el espacio */  
+}
+
+#registro {
+    display: flex;
+    align-items: center;
+}
+
+#registro h5 {
+    margin-right: 10px;
+}

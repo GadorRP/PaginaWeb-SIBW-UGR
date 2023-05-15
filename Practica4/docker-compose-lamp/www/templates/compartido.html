@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+
+    <head>
+        {% block head %}
+            <link href="CSS/estilo_compartido.css" rel="stylesheet" type="text/css">
+        {% endblock %}
+    </head>
+
+    <body>
+        <header>
+            <div class = "cabecera">
+                <img src="{{ icono.foto }}" alt="Logo de la pagina" width="150px">
+                <h1 id = "titulo"> Mujeres científicas en la historia</h1>
+
+                <nav>
+                    <ul>
+                        <li><a href="./index.php">Inicio</a></li>
+                        {% if nick == "Invalido" %}
+                            <li><a href="#">Menu 2</a></li>
+                            <li><a href="./inicioSesion.php">Iniciar Sesion</a></li>
+                        {% else %}
+                            <li><a href="./logout.php">Cerrar Sesion</a></li>
+                            <li><a href="./cambiarDatos.php">{{ nick }}</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </header> 
+           
+        <section>
+        
+            <div class = "contenido">
+
+                {% block central %}
+                
+                {% endblock %}
+
+                <div class = "auxiliar">
+                    <h3> Enlaces de interés </h3>
+                    <h4> Otras mujeres Científicas</h4>
+                    <nav>
+                        <ul>
+                            <li><a href="{{ enlaces[0].url }}">
+                               {{ enlaces[0].descripcion }}
+                            </a></li>
+                            <li><a href="{{ enlaces[1].url }}">
+                                {{ enlaces[1].descripcion }}
+                             </a></li>
+                        </ul>
+                    </nav>
+                    
+                    <h4> Mujer y Ciencia </h4>
+                    <nav>
+                        <ul>
+                            <li><a href="{{ enlaces[2].url }}">
+                                {{ enlaces[2].descripcion }}
+                            </a></li>
+                            <li><a href="{{ enlaces[3].url }}">
+                                {{ enlaces[3].descripcion }}
+                            </a></li>
+                            <li><a href="{{ enlaces[4].url }}">
+                                {{ enlaces[4].descripcion }}
+                            </a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+            </div>
+        </section>
+        
+        <footer>
+            <p>Contacto: e.romerogador@go.ugr.es <br>
+            ® 2023 Gádor Romero Prieto
+            </p>
+        </footer>
+    </body>
+</html> 

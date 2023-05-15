@@ -1,0 +1,30 @@
+{% extends "compartido.html" %}
+
+
+{% block head %}
+    <title>registro.html</title>
+    {{ parent() }}
+    <link href="CSS/estilo_registro.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+{% block central %}
+    <div class = "principal">
+
+        <form id = "formulario" action="../registro.php" method="post">
+            <h1> Crea un usuario en nuestra página! </h1>
+
+            <label for="lineaNombre" id="idNombre">Nombre Completo: </label>
+            <input type="text" id="lineaNombre" name="lineaNombre">
+            <label for="lineaCorreo" id="idCorreo">Correo Electronico:</label>
+            <input type="email" id="lineaCorreo" name="lineaCorreo">
+            <label for="lineaNick" id="idNick">Nombre de usuario:</label>
+            <input type="text" id="lineaNick" name="lineaNick">
+            <label for="lineaPassword" id="idPassword">Contraseña:</label>
+            <input type="password" id="lineaPassword" name="lineaPassword">
+            
+            <button type="submit" id="boton-enviar">Crear Usuario</button>
+            
+        </form>
+    </div>
+{% endblock %}

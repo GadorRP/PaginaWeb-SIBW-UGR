@@ -1,0 +1,117 @@
+html {
+    background-color: rgba(0, 0, 0, 0.89);
+}
+
+
+.cabecera {
+    display: flex; /*contenedor flex en horizontal */
+    justify-content: space-between; 
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+
+    background-image: url(../imagenes/fondo.jpeg);
+    border-radius: 20px 20px 20px 20px ;
+    font-family:  'Goudy Old Style','Gill Sans','Garamon';
+    font-size: 25px;
+}
+
+#titulo {
+    color: black;
+}
+
+.cabecera ul {
+    list-style-type: none; /* quitar puntos y margenes de los enlaces */
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+  
+.cabecera li a {
+    display: block;     /*cada uno de los enlaces se comportan como un bloque*/
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none; /*quitar subrayado del enlace*/
+}
+
+/*#formulario button{
+    display: block;     /*cada uno de los enlaces se comportan como un bloque
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none; /*quitar subrayado del enlace
+}*/
+
+.cabecera li a:hover {
+    font-size: larger;  /*Al pasar el raton por encima la letra se hace mas grande*/
+}
+
+
+.contenido {
+    margin-top: 10px;
+    
+    display: grid;
+    grid-template-columns: 2fr 1fr; /*dos tercios para las fichas y uno para los enlaces adicionales*/
+    gap: 10px;
+    column-gap: 15px; /*Espacio entre las columnas*/
+
+    color: black; /*color de las letras*/
+    border-radius: 20px 20px 20px 20px ;
+}
+
+.auxiliar {
+    background-color: rgba(208, 125, 250, 0.85);
+    border-radius: 20px 20px 20px 20px ;
+}
+
+.auxiliar ul {
+    list-style-type: none; /* quitar puntos y margenes de los enlaces */
+    display: flex;
+    flex-direction: column; /*Lista hacia abajo para poner los enlaces laterales*/
+}
+
+.auxiliar li a {
+    display: block;     /*cada uno de los enlaces se comportan como un bloque*/
+    color: rgb(0, 0, 0);
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.auxiliar h3 {
+    margin-left: 15px;
+    margin-bottom: 0px;
+    margin-top: 5px;
+    font-family: 'Goudy Old Style', 'Westminster';
+    font-size: 30px;
+}
+
+.auxiliar h4 {
+    margin-left: 25px;
+    margin-bottom: 0px;
+    font-family: 'Times New Roman';
+    font-style: italic;
+    font-size: 20px;
+}
+
+li a:hover {
+    color: white;
+}
+
+.contenido li a:hover {
+    text-decoration-line: underline; /*Al pasar el raton el enlace se subraya*/
+}
+
+.auxiliar li a:hover {
+    text-decoration-line: underline; /*Al pasar el raton el enlace se subraya*/
+}
+
+footer {
+    background-image: url(../imagenes/fondo.jpeg);
+    color: black;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 20px 20px 20px 20px ;
+    text-align: center;
+}

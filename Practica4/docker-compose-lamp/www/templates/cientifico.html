@@ -1,0 +1,87 @@
+{% extends "compartido.html" %}
+
+
+{% block head %}
+    <title>cientifica.html</title>
+    {{ parent() }}
+    <link href="CSS/estilo_cientifico.css" rel="stylesheet" type="text/css">
+    <script src = "./js/clase.js" defer> </script>
+{% endblock %}
+    
+{% block central %}
+    <div class = "cientifico">
+        <div class = "texto" >
+            <h1> {{ info.nombre }}</h1>
+            <h4> {{ info.fecha_nacimiento }} {{ info.lugar_nacimiento }} -
+                {{ info.fecha_muerte }} {{ info.lugar_muerte }} </h4>
+
+            <p> {{ info.biografia|raw }}</p>
+
+            <div class = "ampliacion"> 
+                <h4> Para saber más: </h4>
+                <ul>
+                    {% for i in range(0,numEnlaces) %}
+                        <li><a href="{{ enlacesCientifica[i].url }}">
+                            {{ enlacesCientifica[i].descripcion }}
+                        </a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class = "fotos">
+            {% for i in range(0,numFotos) %}
+                <img src="{{ fotos[i].binario }}" width="200px" alt= {{ fotos[i].descripcion }}  >
+                <div class="desc">{{ fotos[i].descripcion|raw }} </div>
+            {% endfor %}
+        </div>
+
+        <div class = "botones">
+            <nav>
+                <ul>
+                    {% for i in range(0,4) %}
+                        <li><a href="{{ botones[i].descripcion }}">
+                            <img src="{{ botones[i].binario }}" width="50px">
+                        </a></li>
+                    {% endfor %}
+                    <button type ="button" id = "boton-comentario">Comentarios</button>
+                </ul>
+            </nav>
+        </div>
+
+        <div id = "SeccionComents" class="SeccionComents">
+            <div id = "OtrosComentarios">
+                {% for i in range(0,numComentarios) %}
+                <div class="Comment-anterior">
+                    <h3 class="titulo-comentario">{{ comentarios[i].nombre }}</h3>
+                    <p class="titulo-comentario">{{ comentarios[i].fecha }}</p>
+                    <p class="texto-comentario">{{ comentarios[i].comentario }}</p>
+                </div>
+                {% endfor %}
+
+                  
+            </div>
+
+            {% if permisos == 0 %}
+            <form id = "formulario">
+                <h2>Deja un comentario!</h2>
+                <label for="lineaNombre" id="idNombre">Nombre </label>
+                <input type="text" id="lineaNombre" name="lineaNombre">
+                <label for="lineaCorreo" id="idCorreo">Correo </label>
+                <input type="email" id="lineaCorreo" name="lineaCorreo">
+                <label for="comentario" id="idcomentario">Comentario </label>
+                <textarea id="comentario" name="comentario"></textarea>
+                <div class="botones-formulario">
+                    <button type="button" id="borrador">Limpiar</button>
+                    <button type="button" id="boton-enviar">Enviar</button>
+                </div>
+                <div id="id_cientifico" data-id="{{ id }}"></div>
+            </form>
+            {% endif %}
+            
+        </div>
+
+    </div>
+
+{% endblock %}
+    

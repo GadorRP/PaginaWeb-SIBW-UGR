@@ -1,0 +1,167 @@
+
+.cientifico {
+    border-radius: 20px 20px 20px 20px ;
+    background-color:  rgba(208, 125, 250, 0.85);
+    padding: 30px;
+    display: grid;
+    grid-template-areas: /*Disposición para poner las fotos en el lateral y los botones sociales abajo*/
+    'texto texto fotos'
+    'texto texto fotos'
+    'botones botones botones';
+    gap: 20px;
+}
+
+.texto {
+    grid-area: texto; /*Para ser reconocido por el grid*/
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.texto h1{
+    margin: 0px;
+    font-size: 40px;
+}
+
+.texto h4 {
+    margin: 0px;
+}
+
+.texto ul {
+    margin: 0px;
+}
+
+.texto li a {
+    color: rgb(0, 0, 0);
+    padding: 14px 16px;
+    text-decoration: none; /*Quitar subrayado del enlace*/
+}
+
+.fotos {
+    margin-top: 20px;
+    text-align: center; /*Pie de foto en el centro de la columna*/
+    grid-area: fotos; /*Para ser reconocido por el grid*/
+}
+.desc{
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.botones {
+    grid-area: botones; /*Para ser reconocido por el grid*/
+}
+
+.botones ul {
+    list-style-type: none; /* quitar puntos y margenes de los enlaces */
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /*Botones en el centro del contenedor horizontal flex*/
+    align-items: center;
+}
+
+.botones li a{
+    display: block;     /*cada uno de los enlaces se comportan como un bloque*/
+    color: rgb(0, 0, 0);
+    padding: 14px 16px;
+}
+
+#boton-comentario{
+    background-image: url(../imagenes/fondo.jpeg);
+    color: rgb(0, 0, 0);
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 20px 20px 20px 20px;
+    padding: 10px;
+}
+
+li a:hover {
+    color: white; /*AL pasar el boton por encima cambia de color a blanco*/
+}
+
+
+.SeccionComents {
+    position: fixed; /* Fijar la posición en la pantalla */
+    top: 0; 
+    right: -600px ; /* Ocultamos la seccion a la derecha  */
+    z-index: 9999; /* Se superpone a cualquier elemento*/
+    transition: all 0.3s ease-in-out; /* transicion para que parezca que se despliega*/
+
+    max-width: 500px; 
+    height: 100vh; /*Ocupar todo el alto de la ventana*/
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to right,rgb(140, 0, 255), rgb(173, 3, 173) );
+}
+
+.SeccionComents h2 {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+#formulario {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;   
+    margin-top: 5px;
+}
+
+#formulario input {
+    width: 75%;
+    outline: none; /*Quitar el efecto cuando es seleccionado*/
+}
+
+#formulario .botones-formulario {
+    display: flex;
+    justify-content: space-between;
+}
+
+#formulario button {
+    width: 45%;
+    background-color: rgb(53, 54, 56);
+    margin-top: 5px;
+    color:white;
+
+    width: 25%;
+    padding: 5px 10px;
+}
+
+input {
+    background-color: rgb(53, 54, 56);
+    color: white;
+}
+
+#comentario {
+    height: 100px;
+    background-color: rgb(53, 54, 56);
+    color: white;
+    outline: none;
+}
+
+#OtrosComentarios {
+    margin: 10px;
+    background-color: rgb(53, 54, 56);
+    display: flex;
+    flex: 1; /*Ocupe todo el espacio disponible*/
+    flex-direction: column;
+    overflow: auto; /*Añade barras de scroll cuando el contenido sobrepasa al area*/
+    
+}
+
+#OtrosComentarios .Comment-anterior {
+    display: block;
+    background-color: rgba(207, 166, 228, 0.85);
+    border-radius: 20px 20px 20px 20px ;
+    padding: 5px;
+    margin: 5px;
+}
+
+#OtrosComentarios .Comment-anterior .titulo-comentario {
+    margin: 10px;
+    margin-bottom: 0px;
+    display: inline-block;
+}
+
+#OtrosComentarios .Comment-anterior .texto-comentario {
+    margin: 10px;
+}
+
+
